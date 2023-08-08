@@ -14,14 +14,10 @@ const loginConfig: StytchLoginConfig = {
       }, 
 }
 
-const styles = {
-  container: { width: '321px' },
-  colors: { primary: '#0577CA' },
-  fontFamily: '"Helvetica New", Helvetica, sans-serif',
-}
-
 
 export default function Page() {
-  return <StytchLogin config={loginConfig} />;
+  return (
+      <StytchLogin config={loginConfig} />
+  )
 }
 

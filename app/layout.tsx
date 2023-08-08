@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className='flex items-center justify-center h-full'>
+        <div className='flex flex-1 h-full'>
           <StytchProvider stytch={stytch}>
             {children}
           </StytchProvider>
