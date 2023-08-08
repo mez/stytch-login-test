@@ -3,10 +3,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import { StytchProvider } from "@stytch/nextjs";
-import { createStytchUIClient } from "@stytch/nextjs/ui";
+import { StytchB2BProvider, createStytchB2BUIClient } from "@stytch/nextjs/b2b";
 
-const stytch = createStytchUIClient(
+const stytch = createStytchB2BUIClient(
   "public-token-test-526219d4-38af-4a0f-bae5-0ae628122345"
 );
 
@@ -27,9 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className='flex flex-1 h-full'>
-          <StytchProvider stytch={stytch}>
+          <StytchB2BProvider stytch={stytch}>
             {children}
-          </StytchProvider>
+          </StytchB2BProvider>
         </div>
 
       </body>

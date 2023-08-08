@@ -1,23 +1,25 @@
 'use client';
 
-import { StytchLogin } from "@stytch/nextjs";
-import { Products, StytchLoginConfig } from "@stytch/vanilla-js";
+import { B2BProducts, AuthFlowType, StytchB2BUIConfig } from "@stytch/vanilla-js/b2b";
+import { StytchB2B } from '@stytch/nextjs/b2b';
 
-const loginConfig: StytchLoginConfig = {
-  products: [Products.emailMagicLinks],
+
+const loginConfig: StytchB2BUIConfig = {
+  products: [B2BProducts.emailMagicLinks],
       emailMagicLinksOptions: {
-        loginRedirectURL: `http://localhost:3000/authredirect`,
-        loginExpirationMinutes: 30,
-        signupRedirectURL: `http://localhost:3000/authredirect`,
-        signupExpirationMinutes: 30,
-        createUserAsPending: true,
+        loginRedirectURL: `http://localhost:7000/authredirect`,
+        signupRedirectURL: `http://localhost:7000/authredirect`,
       }, 
+      authFlowType: AuthFlowType.Discovery,
+      sessionOptions: {
+        sessionDurationMinutes: 60,
+      },
 }
 
 
 export default function Page() {
   return (
-      <StytchLogin config={loginConfig} />
+      <StytchB2B config={loginConfig} />
   )
 }
 
